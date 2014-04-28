@@ -1,0 +1,10 @@
+<h1>Home Index - Home Page</h1>
+
+<% @artists.each do |artist| %>
+  <%=artist.name%>
+  <%= link_to "Delete", delete_artist_path(artist), method: "delete" %></br>
+<% end %>
+
+
+
+

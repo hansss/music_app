@@ -1,5 +1,8 @@
 class Artist < ActiveRecord::Base
-  attr_accessible :city, :name
+  has_secure_password
+  validates :email, presence: true, uniqueness: true
+
+  attr_accessible :city, :name, :email, :password, :password_confirmation
 
   has_many :songs
   has_many :comments

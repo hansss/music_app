@@ -1,11 +1,14 @@
 Project1::Application.routes.draw do
+  get 'login', to: 'sessions#new'
+  resources :sessions, only: [:new, :create, :destroy]
+
   resources :comments
-
-
   resources :songs
-
-
   resources :artists
+
+  delete '/artists/:id' => 'artists#destroy', :as => 'delete_artist'
+
+  root to: 'users#index'
 
 
   # The priority is based upon order of creation:
