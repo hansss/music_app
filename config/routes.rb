@@ -1,9 +1,9 @@
 Project1::Application.routes.draw do
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
-
-  resources :comments
-  resources :songs
+  resources :songs do
+    resources :comments
+  end
   resources :artists
 
   delete '/artists/:id' => 'artists#destroy', :as => 'delete_artist'

@@ -10,20 +10,15 @@
   <%= @artist.city %>
 </p>
 
-<p>
+<div class = "songs">
   <b>Songs:</b></br>
   <% @artist.songs.each do |song| %>
-  <ul>
-    <li><%= song.name %>
-      <%= link_to "Add a comment", new_comment_path %>
-      <% song.comments.each do |comment| %>
+    <%= link_to "Add a comment", new_song_comment_path(song) %>
+    <% song.comments.each do |comment| %>
         <ul><li><%= comment.content %></li></ul>
-      <% end %> <!-- end of .each for all comments -->
-    </li>
-  </ul>
-  <% end %> <!-- end of .each for all songs -->
-
-</p>
+    <% end %>
+  <% end %>
+</div>
 
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
