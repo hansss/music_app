@@ -11,10 +11,18 @@
 </p>
 
 <p>
-  <b>Songs:</b>
+  <b>Songs:</b></br>
   <% @artist.songs.each do |song| %>
-    <%= song.name %>
-  <% end %>
+  <ul>
+    <li><%= song.name %>
+      <%= link_to "Add a comment", new_comment_path %>
+      <% song.comments.each do |comment| %>
+        <ul><li><%= comment.content %></li></ul>
+      <% end %> <!-- end of .each for all comments -->
+    </li>
+  </ul>
+  <% end %> <!-- end of .each for all songs -->
+
 </p>
 
 

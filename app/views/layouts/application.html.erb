@@ -13,6 +13,8 @@
    </div>
   <% end %>
 
+  <%= link_to "Home", root_path %>
+
   <% if current_artist %>
    <p> hello, <%= current_artist.email %> </p>
    <%= link_to "Logout", sessions_path(session), method: :delete, data: {confirm: "Are you sure?"} %>
