@@ -1,22 +1,27 @@
 <p id="notice"><%= notice %></p>
+<div id = "artist_info"
+  <div id ="name">
+    <b>Name:</b> <%= @artist.name %>
+  </div>
 
-<p>
-  <b>Name:</b>
-  <%= @artist.name %>
-</p>
+  <div id = "city">
+    <b>City:</b> <%= @artist.city %>
+  </div>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @artist.city %>
-</p>
-
-<div class = "songs">
-  <b>Songs:</b></br>
+<div class = "songs_group">
+  <h2>Songs</h2></br>
   <% @artist.songs.each do |song| %>
+    <div class = "song">
+    <div id = "song_name"><%= song.name %></div></br>
     <%= link_to "Add a comment", new_song_comment_path(song) %>
     <% song.comments.each do |comment| %>
-        <ul><li><%= comment.content %></li></ul>
+        <li id="comments">
+          <%= comment.content %>
+
+        </li>
     <% end %>
+  </div>
   <% end %>
 </div>
 

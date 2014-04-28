@@ -6,4 +6,8 @@ class Artist < ActiveRecord::Base
 
   has_many :songs
   has_many :comments
+
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
 end

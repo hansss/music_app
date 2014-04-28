@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  load_and_authorize_resource
   helper_method :current_artist
   
   def current_artist
@@ -8,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_artist
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url , alert: "You can't access this page"
   end
   
   private

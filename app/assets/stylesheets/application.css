@@ -11,3 +11,44 @@
  *= require_self
  *= require_tree .
  */
+body{
+  text-align: center;
+  font-family: Helvetica;
+}
+
+table {
+  margin: auto;
+}
+
+#artist_info {
+  
+  text-align: left;
+}
+
+.songs_group{
+  margin-top: 100px;
+}
+
+.song{
+  border-bottom: 1px solid black;
+}
+
+#song_name{
+  font-size: 1.5em;
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
