@@ -8,7 +8,7 @@ Project1::Application.routes.draw do
 
   delete '/artists/:id' => 'artists#destroy', :as => 'delete_artist'
 
-  root to: 'users#index'
+  root to: 'artists#index'
 
 
   # The priority is based upon order of creation:
