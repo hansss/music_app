@@ -26,8 +26,10 @@
         <li id="comments">       
           <%=verify_if_comment_has_a_registered_author(comment)%>: 
           <%= comment.content %>
-          <!-- Edit should only be allowed for author's of the comment-->
-          <%= link_to 'Edit', edit_song_comment_path(comment) %>
+          <% if @current_artist == comment.artist %>
+            <%= link_to 'Edit', edit_song_comment_path(comment) %>
+            <%= link_to 'Delete', delete_song_comment_path(comment) %>
+          <% end %>
           <% if @artist == @current_artist %>
             <%= link_to 'Delete', delete_song_comment_path(comment) %>
           <%end%>

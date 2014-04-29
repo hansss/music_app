@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :load_song
+  load_and_authorize_resource
   # GET /comments
   # GET /comments.json
   def index

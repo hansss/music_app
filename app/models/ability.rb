@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
       else
         can :read, Artist
-        can :manage, :current_artist
+        can :manage, :current_user
       end
     #
     # The first argument to `can` is the action you are giving the user 
