@@ -7,18 +7,30 @@
   <div id = "city">
     <b>City:</b> <%= @artist.city %>
   </div>
+  <% if @artist == @current_artist %>
+  <div id="edit_profile_page">
+    <%= link_to 'Edit', edit_artist_path(@artist) %> 
+  </div>
+  <% end %>
 </div>
 
 <div class = "songs_group">
-  <h2>Songs</h2></br>
+  <div id="song_header">Songs</div></br>
+  
+
   <% @artist.songs.each do |song| %>
     <div class = "song">
     <div id = "song_name"><%= song.name %></div></br>
     <%= link_to "Add a comment", new_song_comment_path(song) %>
     <% song.comments.each do |comment| %>
-        <li id="comments">
+        <li id="comments">       
+          <%=verify_if_comment_has_a_registered_author(comment)%>: 
           <%= comment.content %>
-
+          <!-- Edit should only be allowed for author's of the comment-->
+          <%= link_to 'Edit', edit_song_comment_path(comment) %>
+          <% if @artist == @current_artist %>
+            <%= link_to 'Delete', delete_song_comment_path(comment) %>
+          <%end%>
         </li>
     <% end %>
   </div>
@@ -26,5 +38,4 @@
 </div>
 
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+

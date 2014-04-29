@@ -9,8 +9,8 @@
 <body>
   <div id = "global_header_block">
     <%= link_to "Home", root_path%>&nbsp&nbsp
-    <% if current_artist %>
-      Hello, <%=current_artist.email%>
+    <% if @current_artist %>
+      Hello, <%=@current_artist.email%>
       <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%>
     <%else %>
       <%= link_to 'Sign Up', new_artist_path %>&nbsp&nbsp
