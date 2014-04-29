@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div id = "artist_info"
+
+  <div id = "cover_image">
+    <%= image_tag @artist.cover_image.url %>
+  </div>
+  <div id = "profile_image">
+    <%= image_tag @artist.profile_image.url %>
+  </div>
   <div id ="name">
     <b>Name:</b> <%= @artist.name %>
   </div>

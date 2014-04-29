@@ -15,7 +15,8 @@ end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'cancan'
-
+gem 'carrierwave', '= 0.9.0'
+gem 'rmagick'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
