@@ -26,7 +26,7 @@
         <li id="comments">       
           <%=verify_if_comment_has_a_registered_author(comment)%>: 
           <%= comment.content %>
-          <% if @current_artist == comment.artist %>
+          <% if @current_artist == comment.artist && @current_artist != nil %>
             <%= link_to 'Edit', edit_song_comment_path(comment) %>
             <%= link_to 'Delete', delete_song_comment_path(comment) %>
           <% end %>

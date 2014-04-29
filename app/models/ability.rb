@@ -9,6 +9,7 @@ class Ability
         can :manage, :all
       else
         can :read, Artist
+        can :create, Artist
         can :manage, :current_user
       end
     #
