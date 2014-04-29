@@ -7,7 +7,7 @@
   <div id = "city">
     <b>City:</b> <%= @artist.city %>
   </div>
-  <% if @artist == @current_artist %>
+  <% if can? :edit, @artist %>
   <div id="edit_profile_page">
     <%= link_to 'Edit', edit_artist_path(@artist) %> 
   </div>
@@ -16,6 +16,9 @@
 
 <div class = "songs_group">
   <div id="song_header">Songs</div></br>
+  <% if can? :manage, @artist %>
+    <%= link_to "Add a new song", new_song_path %>
+  <% end %>
   
 
   <% @artist.songs.each do |song| %>
@@ -26,12 +29,11 @@
         <li id="comments">       
           <%=verify_if_comment_has_a_registered_author(comment)%>: 
           <%= comment.content %>
-          <% if @current_artist == comment.artist && @current_artist != nil %>
-            <%= link_to 'Edit', edit_song_comment_path(comment) %>
-            <%= link_to 'Delete', delete_song_comment_path(comment) %>
+          <%if can? :manage, comment || @current_artist %>
+            <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
           <% end %>
-          <% if @artist == @current_artist %>
-            <%= link_to 'Delete', delete_song_comment_path(comment) %>
+          <% if can? :destroy, comment %>
+            <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
           <%end%>
         </li>
     <% end %>

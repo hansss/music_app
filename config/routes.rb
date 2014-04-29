@@ -8,7 +8,7 @@ Project1::Application.routes.draw do
 
   delete '/artists/:id' => 'artists#destroy', :as => 'delete_artist'
 
-  delete '/songs/:song_id/comments/:id' => 'comments#destroy', :as => 'delete_song_comment'
+  # delete '/songs/:song_id/comments/:id' => 'comments#destroy', :as => 'delete_song_comment'
 
   root to: 'artists#index'
 

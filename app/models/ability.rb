@@ -9,8 +9,18 @@ class Ability
         can :manage, :all
       else
         can :read, Artist
+        # can :read, Song
         can :create, Artist
-        can :manage, :current_user
+        can :manage, Artist, id: artist.id
+        # can :create, Song, artist_id: artist.id
+        can :manage, Song, artist_id: artist.id
+        can :create, Comment
+        can :manage, Comment, artist_id: artist.id
+        can :destroy, Comment, song: {artist_id: artist.id}
+
+
+
+       
       end
     #
     # The first argument to `can` is the action you are giving the user 
