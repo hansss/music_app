@@ -31,6 +31,12 @@
   <% @artist.songs.each do |song| %>
     <div class = "song">
     <div id = "song_name"><%= song.name %></div></br>
+    <audio controls>
+      <source src=<%= song.song_audio.url %> type="audio/ogg">
+      <source src=<%= song.song_audio.url %> type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio></br>
+
     <%= link_to "Add a comment", new_song_comment_path(song) %>
     <% song.comments.each do |comment| %>
         <li id="comments">       
