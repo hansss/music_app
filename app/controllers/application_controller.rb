@@ -23,6 +23,30 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    helper_method :check_for_profile_image
+    def check_for_profile_image(artist)
+      if artist.profile_image == nil
+        artist.profile_image = "/public/uploads/artist/profile_image/default_image.jpeg"
+      end
+  end
+
+  private
+    helper_method :check_for_comment_image
+    def check_for_comment_image(comment)
+      if comment.artist == nil
+        comment.artist.profile_image.thumb = "/public/uploads/artist/profile_image/default_image.jpeg"
+      end
+  end
+
+  private
+    helper_method :check_for_cover_image
+    def check_for_cover_image(artist)
+      if artist.cover_image == nil
+        artist.cover_image = "/public/uploads/artist/cover_image/default_image.jpeg"
+      end
+  end
+
+  private
   helper_method :verify_if_comment_has_a_registered_author
   def verify_if_comment_has_a_registered_author(comment)
     if comment.artist == nil

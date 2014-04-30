@@ -1,6 +1,7 @@
 <p class="notice"><%= notice %></p>
   <div class = "content">
     <div class = "header_cover">
+      <% check_for_cover_image(@artist) %>
         <div class = "cover_image" style="background-image:url(<%=@artist.cover_image.url %>)">
         </div>
       </div>
@@ -10,6 +11,7 @@
     <div class = "left_sidebar"
       <div class = "left_sidebar_scrollable">
           <div class = "profile_image">
+            <% check_for_profile_image(@artist) %>
             <%= image_tag @artist.profile_image_url(:profile_image) %>
           </div>
           <div class ="name">
@@ -50,7 +52,9 @@
 
       <% song.comments.each do |comment| %>
           <li class="comments">    
-            <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
+            <% if comment.artist != nil %>
+              <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
+            <% end %>
 
 
             <%=verify_if_comment_has_a_registered_author(comment)%>: 
