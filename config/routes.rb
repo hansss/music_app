@@ -10,7 +10,7 @@ Project1::Application.routes.draw do
 
   # delete '/songs/:song_id/comments/:id' => 'comments#destroy', :as => 'delete_song_comment'
 
-  root to: 'artists#index'
+  root to: 'home#index'
 
 
   # The priority is based upon order of creation:

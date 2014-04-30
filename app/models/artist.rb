@@ -4,6 +4,8 @@ class Artist < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   attr_accessible :city, :name, :email, :password, :password_confirmation, :profile_image, :cover_image
+
+  
   mount_uploader :profile_image, ProfileImageUploader
   mount_uploader :cover_image, CoverImageUploader
   has_many :songs

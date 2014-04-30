@@ -1,60 +1,68 @@
-<p id="notice"><%= notice %></p>
-<div id = "artist_info"
+<p class="notice"><%= notice %></p>
+  <div class = "content">
+    <div class = "header_cover"
+      <div class = "cover_image">
+        <%= image_tag @artist.cover_image.url %>
+      </div>
+    </div>
 
-  <div id = "cover_image">
-    <%= image_tag @artist.cover_image.url %>
-  </div>
-  <div id = "profile_image">
-    <%= image_tag @artist.profile_image.url %>
-  </div>
-  <div id ="name">
-    <b>Name:</b> <%= @artist.name %>
-  </div>
+    <div class = "left_sidebar"
+    <div class = "left_sidebar_scrollable">
+        <div class = "profile_image">
+          <%= image_tag @artist.profile_image.url %>
+        </div>
+        <div class ="name">
+          <b>Name:</b> <%= @artist.name %>
+        </div>
 
-  <div id = "city">
-    <b>City:</b> <%= @artist.city %>
-  </div>
-  <% if can? :edit, @artist %>
-  <div id="edit_profile_page">
-    <%= link_to 'Edit', edit_artist_path(@artist) %> 
-  </div>
-  <% end %>
-</div>
+        <div class = "city">
+          <b>City:</b> <%= @artist.city %>
+        </div>
+        <% if can? :edit, @artist %>
+        <div class="edit_profile_page">
+          <%= link_to 'Edit', edit_artist_path(@artist) %> 
+        </div>
+        <% end %>
+      </div>
+    </div>
 
-<div class = "songs_group">
-  <div id="song_header">Songs</div></br>
-  <% if can? :manage, @artist %>
-    <%= link_to "Add a new song", new_song_path %>
-  <% end %>
-  
+  <div class = "songs_group">
+    <div class="song_header">Songs</div></br>
+    <% if can? :manage, @artist %>
+      <%= link_to "Add a new song", new_song_path %>
+    <% end %>
+    
 
-  <% @artist.songs.each do |song| %>
-    <div class = "song">
-    <div id = "song_name"><%= song.name %></div></br>
-    <audio controls>
-      <source src=<%= song.song_audio.url %> type="audio/ogg">
-      <source src=<%= song.song_audio.url %> type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio></br>
-    <%= link_to "Edit Song", edit_song_path(song) %>
-    <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
+    <% @artist.songs.order('updated_at DESC').each do |song| %>
+      <div class = "song">
+      <div class = "song_name"><%= song.name %></div></br>
+      <audio controls>
+        <source src=<%= song.song_audio.url %> type="audio/ogg">
+        <source src=<%= song.song_audio.url %> type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio></br>
+      <%= link_to "Edit Song", edit_song_path(song) %>
+      <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
 
-    <%= link_to "Add a comment", new_song_comment_path(song) %>
-    <% song.comments.each do |comment| %>
-        <li id="comments">       
-          <%=verify_if_comment_has_a_registered_author(comment)%>: 
-          <%= comment.content %>
-          <%if can? :manage, comment || @current_artist %>
-            <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
-          <% end %>
-          <% if can? :destroy, comment %>
-            <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
-          <%end%>
-        </li>
+      <%= link_to "Add a comment", new_song_comment_path(song) %>
+
+      <% song.comments.each do |comment| %>
+          <li class="comments">    
+            <%=image_tag comment.artist.profile_image_url(:comment_thumb) %>   
+            <%=verify_if_comment_has_a_registered_author(comment)%>: 
+            <%= comment.content %>
+            <%= comment.updated_at.to_formatted_s(:long) %>
+            <%if can? :manage, comment || @current_artist %>
+              <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
+            <% end %>
+            <% if can? :destroy, comment %>
+              <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
+            <%end%>
+          </li>
+      <% end %>
+    </div>
     <% end %>
   </div>
-  <% end %>
 </div>
-
 
 

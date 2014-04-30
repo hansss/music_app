@@ -4,4 +4,7 @@ class Song < ActiveRecord::Base
 
   has_many :comments
   belongs_to :artist
+
+  validates :name, presence: true
+  validates :song_audio, presence: true
 end

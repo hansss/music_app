@@ -1,0 +1,17 @@
+.left_sidebar{
+  position: absolute;
+  top: 30px;
+  bottom: 0px;
+  width: 250px;
+  left: 0px;
+  padding: 100px 45px;
+  background-color: white;
+}
+.left_sidebar_scrollable{
+  position: fixed;
+}
+
+.content{
+  padding-top: 46px;
+
+}

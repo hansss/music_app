@@ -1,9 +1,56 @@
-<h1>Home Index - Home Page</h1>
+<h1>Home Page</h1>
+
+<h1>Artists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
 <% @artists.each do |artist| %>
-  <%=artist.name%>
-  <%= link_to "Delete", delete_artist_path(artist), method: "delete" %></br>
+  <tr>
+    <td><%= link_to artist.name, artist %></td>
+    <% if can? :create, @artist %>
+    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+    <td><%= link_to 'Destroy', artist, method: :delete %></td>
+    <%end%>
+  </tr>
 <% end %>
+</table>
+
+<br />
+
+<h1>Songs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Artist</th>
+    <th>Audio</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @songs.each do |song| %>
+  <%if song.valid?%>
+    <tr>
+      <td><%= link_to song.name, song.artist %></td>
+      <td><%= song.artist.name %></td>
+      
+      <td> <audio controls>
+        <source src=<%= song.song_audio.url %> type="audio/ogg">
+        <source src=<%= song.song_audio.url %> type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio></br></td>
+    </tr>
+  <% end %>
+<%end%>
+</table>
+
 
 
 

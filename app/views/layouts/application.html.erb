@@ -6,22 +6,21 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <div id = "global_header_block">
     <%= link_to "Home", root_path%>&nbsp&nbsp
     <% if @current_artist %>
-      Hello, <%=@current_artist.email%>
+      Hello, <%=link_to @current_artist.name, @current_artist%>
       <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%>
     <%else %>
       <%= link_to 'Sign Up', new_artist_path %>&nbsp&nbsp
       <%=link_to "Log In", new_session_path%>
   <% end %>
 
-  <% flash.each do |name, message| %>
-   <div class="flash-message flash-message-<%= name %>">
-    <%= message %>
+  
    </div>
-  <% end %>
+
 
 
 <%= yield %>
