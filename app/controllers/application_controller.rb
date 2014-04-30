@@ -23,16 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  helper_method :check_for_profile_image
-  def check_for_profile_image(image)
-    if image == nil
-      "/Users/Hana/Documents/wdi_working/Project1/project1/public/uploads/artist/profile_image/default_image.jpeg"
-    else
-      @artist.profile_image
-    end
-  end
-
-  private
   helper_method :verify_if_comment_has_a_registered_author
   def verify_if_comment_has_a_registered_author(comment)
     if comment.artist == nil

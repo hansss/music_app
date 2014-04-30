@@ -1,33 +1,31 @@
 <p class="notice"><%= notice %></p>
   <div class = "content">
     <div class = "header_cover">
-      <div class = "cover_image" style="background-image:url(<%=@artist.cover_image.url %>)"></div>
-
-
-
-
-      <%#= image_tag @artist.cover_image.url %>
+        <div class = "cover_image" style="background-image:url(<%=@artist.cover_image.url %>)">
+        </div>
       </div>
     </div>
 
-    <div class = "left_sidebar"
-    <div class = "left_sidebar_scrollable">
-        <div class = "profile_image">
-          <%= image_tag @artist.profile_image_url(:profile_image) %>
-        </div>
-        <div class ="name">
-          <b>Name:</b> <%= @artist.name %>
-        </div>
 
-        <div class = "city">
-          <b>City:</b> <%= @artist.city %>
+    <div class = "left_sidebar"
+      <div class = "left_sidebar_scrollable">
+          <div class = "profile_image">
+            <%= image_tag @artist.profile_image_url(:profile_image) %>
+          </div>
+          <div class ="name">
+            <b>Name:</b> <%= @artist.name %>
+          </div>
+
+          <div class = "city">
+            <b>City:</b> <%= @artist.city %>
+          </div>
+
+          <% if can? :edit, @artist %>
+          <div class="edit_profile_page">
+            <%= link_to 'Edit', edit_artist_path(@artist) %> 
+          </div>
+          <% end %>
         </div>
-        <% if can? :edit, @artist %>
-        <div class="edit_profile_page">
-          <%= link_to 'Edit', edit_artist_path(@artist) %> 
-        </div>
-        <% end %>
-      </div>
     </div>
 
   <div class = "songs_group">

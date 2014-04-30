@@ -42,7 +42,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(params[:artist])
-
+    @artist.profile_image = "/Users/Hana/Documents/wdi_working/Project1/project1/public/uploads/artist/profile_image/default_image.jpeg"
     respond_to do |format|
       if @artist.save
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
