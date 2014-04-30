@@ -1,15 +1,19 @@
 <p class="notice"><%= notice %></p>
   <div class = "content">
     <div class = "header_cover"
-      <div class = "cover_image">
-        <%= image_tag @artist.cover_image.url %>
+      <div class = "cover_image" style="background-image:url(<%=@artist.cover_image.url %>)"></div>
+
+
+
+
+      <%#= image_tag @artist.cover_image.url %>
       </div>
     </div>
 
     <div class = "left_sidebar"
     <div class = "left_sidebar_scrollable">
         <div class = "profile_image">
-          <%= image_tag @artist.profile_image.url %>
+          <%= image_tag @artist.profile_image_url(:profile_image) %>
         </div>
         <div class ="name">
           <b>Name:</b> <%= @artist.name %>
@@ -48,7 +52,9 @@
 
       <% song.comments.each do |comment| %>
           <li class="comments">    
-            <%=image_tag comment.artist.profile_image_url(:comment_thumb) %>   
+            <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
+
+
             <%=verify_if_comment_has_a_registered_author(comment)%>: 
             <%= comment.content %>
             <%= comment.updated_at.to_formatted_s(:long) %>
