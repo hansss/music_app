@@ -2,7 +2,7 @@
   <div class = "content">
     <div class = "header_cover">
       <% check_for_cover_image(@artist) %>
-        <div class = "cover_image" style="background-image:url(<%=@artist.cover_image.url %>)">
+        <div class = "cover_image" style="background-image:url(<%=@artist.get_cover_image%>)">
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
       <div class = "left_sidebar_scrollable">
           <div class = "profile_image">
             <% check_for_profile_image(@artist) %>
-            <%= image_tag @artist.profile_image_url(:profile_image) %>
+            <%= image_tag @artist.get_profile_image %>
           </div>
           <div class ="name">
             <b>Name:</b> <%= @artist.name %>
@@ -31,7 +31,7 @@
     </div>
 
   <div class = "songs_group">
-    <div class="song_header">Songs</div></br>
+    <h2 class="song_header">Songs</h2></br>
     <% if can? :manage, @artist %>
       <%= link_to "Add a new song", new_song_path %>
     <% end %>
@@ -45,8 +45,11 @@
         <source src=<%= song.song_audio.url %> type="audio/mpeg">
         Your browser does not support the audio element.
       </audio></br>
+
+      <% if can? :manage, song %>
       <%= link_to "Edit Song", edit_song_path(song) %>
       <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
+      <% end %>
 
       <%= link_to "Add a comment", new_song_comment_path(song) %>
 
@@ -60,11 +63,14 @@
             <%=verify_if_comment_has_a_registered_author(comment)%>: 
             <%= comment.content %>
             <%= comment.updated_at.to_formatted_s(:long) %>
-            <%if can? :manage, comment || @current_artist %>
-              <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
-            <% end %>
-            <% if can? :destroy, comment %>
-              <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
+
+            <% if current_user != nil %>
+              <% if can? :manage, comment %>
+                <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
+              <% end %>
+              <% if can? :destroy, comment %>
+                <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
+              <%end%>
             <%end%>
           </li>
       <% end %>

@@ -13,6 +13,7 @@ group :development, :test do
   gem 'better_errors'
 end
 
+gem 'ransack'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'cancan'
 gem 'carrierwave', '= 0.9.0'

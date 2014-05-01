@@ -1,15 +1,15 @@
-.global_header_block{
+/*.log_in_header{
   position: fixed;
   display: inline-block;
-  background-color: black;
+  background-color: white;
   font-family: Gill Sans, Sans-Serif;
-  color: white;
+  color: black;
   right:0px;
   top:0px;
   height:55px;
   width: 100%;
   border-bottom: 1px solid #121212;
-}
+}*/
 
 .left_sidebar{
   position: absolute;
@@ -25,17 +25,31 @@
   width: 200px;
 }
 
-
 .cover_image {
    width: 100%;
    height: 350px;
-
-
-
    border: 1px solid #000;
    border-color: rgba(0,0,0,0.25);
    border-top-color: rgba(0,0,0,0.1);
 }
-.content{
-
+.song_header{
+font: 5em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

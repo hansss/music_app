@@ -5,6 +5,8 @@ class ArtistsController < ApplicationController
   def index
     @artists = Artist.all
 
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @artists }
@@ -42,9 +44,10 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(params[:artist])
-    @artist.profile_image = "/Users/Hana/Documents/wdi_working/Project1/project1/public/uploads/artist/profile_image/default_image.jpeg"
+    
     respond_to do |format|
       if @artist.save
+        session[:artist_id] = @artist.id
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
         format.json { render json: @artist, status: :created, location: @artist }
       else
@@ -58,7 +61,7 @@ class ArtistsController < ApplicationController
   # PUT /artists/1.json
   def update
     @artist = Artist.find(params[:id])
-
+   
     respond_to do |format|
       if @artist.update_attributes(params[:artist])
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
