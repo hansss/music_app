@@ -4,8 +4,8 @@ class HomeController < ApplicationController
     @artists = Artist.all
     @songs = Song.all
 
-     @q = Artist.search(params[:q])
-    @artists_found = @q.result(distinct:true) 
+    @q = Artist.search(params[:q])
+    
   end
 
 

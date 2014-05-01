@@ -12,12 +12,13 @@
 <% @artists.each do |artist| %>
   <tr>
     <td><%= link_to artist.name, artist %></td>
+    <td><%= artist.city %></td>
     <% if can? :create, @artist %>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, method: :delete %></td>
+      <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+      <td><%= link_to 'Destroy', artist, method: :delete %></td>
     <%end%>
-  </tr>
 <% end %>
+  </tr>
 </table>
 
 <br />
