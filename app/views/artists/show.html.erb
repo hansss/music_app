@@ -31,7 +31,9 @@
     </div>
 
   <div class = "songs_group">
-    <h2 class="song_header">Songs</h2></br>
+    <div class="song_title_on_artist_page">
+      <%=@artist.name.possessive.upcase%> SONGS
+    </div>
     <% if can? :manage, @artist %>
       <%= link_to "Add a new song", new_song_path %>
     <% end %>

@@ -13,23 +13,35 @@
 </head>
 
 <body>
-   <p class = "title">COLLAB</p>
-   <div class = "ebth">
-       <nav>
-          <%= link_to "Home", root_path%>
-          <%= link_to "Artists", artists_path %>
-          <%= link_to "Songs", songs_path %>
-          <% if current_user %>
-            Hello, <%=link_to current_user.name, current_user%>
-            <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%>
-          <%else %>
-            <%= link_to 'Sign Up', new_artist_path %>&nbsp&nbsp
-            <%=link_to "Log In", new_session_path%>
-          <% end %>
-       </nav>        
-     </div>
+   <p class = "title"><%= link_to "COLLAB", root_path%></p>
+    
+
+   <nav>
+    <ul class = "nav_bar_links">
+    <li class = "center" ><%=  link_to "Home", root_path %></li>
+    <li class = "center"><%= link_to "Artists", artists_path %></li>
+    <li class = "center"><%= link_to "Songs", songs_path %></li>
+
+    </ul>
+    <ul class = "log_in_sign_up">
+    <% if current_user %>
+    <li class = "right">
+      Hello, <%=link_to current_user.name, current_user%>
+      <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%> </li>
+    <%else %>
+      <li class = "right">
+      <%= link_to 'Sign Up', new_artist_path %></li>
+      <li class = "right">
+      <%=link_to "Log In", new_session_path%></li>
+    <% end %>
+  </ul>
+  <div class="clear"></div>
+
+  </nav>        
+  
     <%= yield %>
   </div>
+
 
 </body>
 </html>

@@ -24,7 +24,7 @@
       <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></td>
   
 
-    <% if current_user.role? :admin%>
+    <% if current_user.try(:role?, :admin) %>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,9 +1,17 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', Georgia, Times, serif;
 }
+
+ul {
+  margin: 0;
+}
 p, div {
     font-family: 'Raleway', Helvetica, Arial, sans-serif;
     text-decoration: none;
+}
+
+a{
+  text-decoration: none;
 }
 
 .title{
@@ -13,28 +21,55 @@ p, div {
   margin: 20px 0px 35px 0px;
 }
 
-top_menu_bar{
-  text-decoration: none;
-  display: inline-block;
-  background-color: white;
-  color: black;
-  right:0px;
-  top:0px;
-  height:25px;
-  width: 100%;
-  text-align: right;
-  margin: 5px;
-  padding-right: 10px;
+.title a{
+  color:black;
 }
 
+.fixed_top{
+
+}
 
 .ebth{
   margin-top: 0px; 
 }
 
 nav{
-  background-color: black;
-  color: white;
+  background-color: white;
+  border-top: 3px dashed black;
+  padding-top: 10px;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
+
+
+
+nav li{
+  display: inline-block;
+}
+nav a{
+  color:black;
+}
+
+nav a.visited{
+  color: black;
+}
+
+nav .right {
+  left:auto;
+  right: -1px;
+  top:-5px;
+}
+
+.log_in_sign_up{
+  /*text-align: right;*/
+  float:right;
+  position: relative;
+  top: -20px;
+}
+
+.nav_bar_links a{
+  padding: 0px 15px;
+  list-style: none;
 }
 
 .left_sidebar{
@@ -63,13 +98,22 @@ font: 5em;
 }
 
 .song_index_header{
-  text-align: left;
   font-size: 3em;
-  margin: 25px 0px 25px 320px;
 }
 
+.song_title_on_artist_page{
+  font-size: 2em;
+  font-family: 'Lato', Georgia, Times, serif;
+  font-weight: bold;
+}
 
+.songs_group{
+  margin-top: 20px;
+}
 
+.clear {
+  clear: both;
+}
 
 
 
