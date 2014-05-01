@@ -9,36 +9,38 @@
  <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
  <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,700,800' rel='stylesheet' type='text/css'>
- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+
+
 </head>
 
 <body>
+  <div class = "fixed_top">
    <p class = "title"><%= link_to "COLLAB", root_path%></p>
-    
+     <nav>
+        <ul class = "nav_bar_links">
+        <li class = "center" ><%=  link_to "Home", root_path %></li>
+        <li class = "center"><%= link_to "Artists", artists_path %></li>
+        <li class = "center"><%= link_to "Songs", songs_path %></li>
 
-   <nav>
-    <ul class = "nav_bar_links">
-    <li class = "center" ><%=  link_to "Home", root_path %></li>
-    <li class = "center"><%= link_to "Artists", artists_path %></li>
-    <li class = "center"><%= link_to "Songs", songs_path %></li>
-
-    </ul>
-    <ul class = "log_in_sign_up">
-    <% if current_user %>
-    <li class = "right">
-      Hello, <%=link_to current_user.name, current_user%>
-      <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%> </li>
-    <%else %>
-      <li class = "right">
-      <%= link_to 'Sign Up', new_artist_path %></li>
-      <li class = "right">
-      <%=link_to "Log In", new_session_path%></li>
-    <% end %>
-  </ul>
-  <div class="clear"></div>
-
-  </nav>        
-  
+        </ul>
+        <ul class = "log_in_sign_up">
+        <% if current_user %>
+        <li class = "right">
+          Hello, <b><%=link_to current_user.name, current_user%></b>&nbsp
+          <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%> </li>
+        <%else %>
+          <li class = "right">
+          <b><%=link_to "Log In", new_session_path%></b></li>&nbsp
+          <li class = "right">
+          <%= link_to 'Sign Up', new_artist_path %></li>
+        <% end %>
+        </ul>
+        <div class="clear"></div>
+    </nav>        
+  </div>
+  <div class = "ebth">
     <%= yield %>
   </div>
 

@@ -12,6 +12,7 @@ p, div {
 
 a{
   text-decoration: none;
+  color: black;
 }
 
 .title{
@@ -25,12 +26,19 @@ a{
   color:black;
 }
 
-.fixed_top{
-
+body{
+  background-color: white;
+  margin: 0px;
+}
+.fixed_top {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index:99;
 }
 
 .ebth{
-  margin-top: 0px; 
+  padding-top: 215px; 
 }
 
 nav{
@@ -65,6 +73,7 @@ nav .right {
   float:right;
   position: relative;
   top: -20px;
+  right: 20px;
 }
 
 .nav_bar_links a{
@@ -73,17 +82,25 @@ nav .right {
 }
 
 .left_sidebar{
-  position: absolute;
-  top: 405px;
+  position: fixed;
+  top: 230px;
   bottom: 0px;
-  width: 150px;
+  width: 250px;
   left: 0px;
   padding: 25px 45px;
-  background-color: white;
+  background-color:rgba(255,0,0,0.5);
+  height:100%;
+  z-index:50;
 }
+
+
 .left_sidebar_scrollable{
-  position: absolute;
-  width: 200px;
+ 
+}
+
+
+.songs_group{
+  padding-left: 250px;
 }
 
 .cover_image {
@@ -93,12 +110,23 @@ nav .right {
    border-color: rgba(0,0,0,0.25);
    border-top-color: rgba(0,0,0,0.1);
 }
+
+.profile_image{
+  padding-top: 10px;
+}
+
+
 .song_header{
 font: 5em;
 }
 
 .song_index_header{
-  font-size: 3em;
+   font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
+    margin-top: 0px;
+    margin-bottom: 15px;
 }
 
 .song_title_on_artist_page{
@@ -115,6 +143,31 @@ font: 5em;
   clear: both;
 }
 
+img[alt='Default_song_image'] {
+  width: 100px;
+}
+
+
+.artist_title{
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.artist_block{
+  display:inline-block;
+  padding: 25px;
+}
+
+.artist_index_name{
+  font-size: 1em;
+  text-align: left;
+  font-family: "lato", sans-serif;
+  font-weight: bold;
+}
 
 
 

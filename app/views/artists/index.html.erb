@@ -1,25 +1,18 @@
-<h1>Artists</h1>
+<p class = "artist_title">Artists</p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @artists.each do |artist| %>
-  <tr>
-    <td><%= link_to artist.name, artist %></td>
-    <td><%= artist.city %></td>
-    <% if can? :create, @artist %>
-      <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-      <td><%= link_to 'Destroy', artist, method: :delete %></td>
-    <%end%>
-<% end %>
-  </tr>
-</table>
 
-<br />
+  <div class = "artist_block">
+    <div class= "artist_index_name"><%= link_to artist.name.upcase, artist %></div>
+    <div><%= link_to image_tag(artist.get_index_profile_image), artist %></div>
+
+    <% if can? :create, @artist %>
+      <%= link_to 'Edit', edit_artist_path(artist) %>
+      <%= link_to 'Destroy', artist, method: :delete %>
+    <%end%>
+  </div>
+<% end %>
+
+
 

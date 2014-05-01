@@ -41,44 +41,45 @@
 
     <% @artist.songs.order('updated_at DESC').each do |song| %>
       <div class = "song">
-     
-      <div class = "song_name"><%= song.name %></div></br>
-      <%= image_tag song.song_image_url(:thumb) %>
-      <audio controls>
-        <source src=<%= song.song_audio.url %> type="audio/ogg">
-        <source src=<%= song.song_audio.url %> type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio></br>
-      <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %>
 
-      <% if can? :manage, song %>
-      <%= link_to "Edit Song", edit_song_path(song) %>
-      <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
-      <% end %>
+        <div class = "song_name"><%= song.name %></div></br>
+        <%= image_tag song.get_song_image %>
 
-      <%= link_to "Add a comment", new_song_comment_path(song) %>
+        <audio controls>
+          <source src=<%= song.song_audio.url %> type="audio/ogg">
+          <source src=<%= song.song_audio.url %> type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio></br>
+        <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></br>
 
-      <% song.comments.each do |comment| %>
-          <li class="comments">    
-            <% if comment.artist != nil %>
-              <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
-            <% end %>
+        <% if can? :manage, song %>
+        <%= link_to "Edit Song", edit_song_path(song) %>
+        <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
+        <% end %>
 
+        <%= link_to "Add a comment", new_song_comment_path(song) %>
 
-            <%=verify_if_comment_has_a_registered_author(comment)%>: 
-            <%= comment.content %>
-            <%= comment.updated_at.to_formatted_s(:long) %>
-
-            <% if current_user != nil %>
-              <% if can? :manage, comment %>
-                <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
+        <% song.comments.each do |comment| %>
+            <li class="comments">    
+              <% if comment.artist != nil %>
+                <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
               <% end %>
-              <% if can? :destroy, comment %>
-                <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
+
+
+              <%=verify_if_comment_has_a_registered_author(comment)%>: 
+              <%= comment.content %>
+              <%= comment.updated_at.to_formatted_s(:long) %>
+
+              <% if current_user != nil %>
+                <% if can? :manage, comment %>
+                  <%= link_to 'Edit', edit_song_comment_path(song,comment) %>
+                <% end %>
+                <% if can? :destroy, comment %>
+                  <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
+                <%end%>
               <%end%>
-            <%end%>
-          </li>
-      <% end %>
+            </li>
+        <% end %>
     </div>
     <% end %>
   </div>

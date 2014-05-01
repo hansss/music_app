@@ -2,12 +2,11 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-<!-- @songs.order('updated_at DESC').each -->
 <% @songs.each do |song| %>
   <% if song.song_audio? %>
   <tr>
@@ -21,7 +20,7 @@
       </audio></br>
     </td>
     <td>
-      <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></td>
+    Added <%= time_ago_in_words song.updated_at %> ago</td>
   
 
     <% if current_user.try(:role?, :admin) %>

@@ -17,10 +17,6 @@ class Ability
         can :create, Comment
         can :manage, Comment, artist_id: artist.id
         can :destroy, Comment, song: {artist_id: artist.id}
-
-
-
-       
       end
     #
     # The first argument to `can` is the action you are giving the user 

@@ -9,10 +9,8 @@ class Song < ActiveRecord::Base
   validates :name, presence: true
   validates :song_audio, presence: true
 
-
-
   def get_song_image
-    song_image_url(:thumb) || "/uploads/artist/song/default_song_image.jpeg"
+    song_image_url(:thumb) || "/uploads/song/song_image/default_song_image.jpeg"
   end
 
 
