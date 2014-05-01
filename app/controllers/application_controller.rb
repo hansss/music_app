@@ -45,6 +45,16 @@ class ApplicationController < ActionController::Base
         artist.cover_image = "/public/uploads/artist/cover_image/default_image.jpeg"
       end
   end
+  private
+    helper_method :chose_color
+    def chose_color
+      if @artist.color != nil
+       @artist.color.code
+     else
+      "background-color:rgba(215, 222, 221, 0.5)"
+    end
+  end
+
 
   private
   helper_method :verify_if_comment_has_a_registered_author

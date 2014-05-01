@@ -3,13 +3,14 @@ class Artist < ActiveRecord::Base
   ROLES = %w[admin banned]
   validates :email, presence: true, uniqueness: true
 
-  attr_accessible :city, :name, :email, :password, :password_confirmation, :profile_image, :cover_image
+  attr_accessible :city, :name, :email, :password, :password_confirmation, :profile_image, :cover_image, :color, :color_id
 
   
   mount_uploader :profile_image, ProfileImageUploader
   mount_uploader :cover_image, CoverImageUploader
   has_many :songs
   has_many :comments
+  belongs_to :color
 
   def role?(role)
     self.role.to_s == role.to_s
@@ -26,5 +27,7 @@ class Artist < ActiveRecord::Base
   def get_cover_image
     cover_image.url || "/uploads/artist/cover_image/default_cover_image.jpg"
   end
+
+
 
 end

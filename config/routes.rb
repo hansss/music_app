@@ -1,4 +1,7 @@
 Project1::Application.routes.draw do
+  resources :colors
+
+
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
   resources :songs do

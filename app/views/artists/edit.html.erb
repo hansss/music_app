@@ -29,6 +29,12 @@
     <%= f.label :cover_image %><br />
     <%= f.file_field :cover_image %>
   </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.collection_select(:color_id, Color.all, :id, :name)%>
+  </div>
+
+
 
  
   <div class="actions">
