@@ -1,6 +1,5 @@
 
 
-<h1></h1>
 
 <table>
   <tr>
@@ -10,57 +9,59 @@
     <th></th>
     <th></th>
   </tr>
-
+  <div class="search_bar">
   <%= search_form_for @q do |f| %>
     <p>
       <%= f.label "Artist:" %>
-      <%= f.text_field :name_cont %>
-    </p>
-    <p>
-      <%= f.submit %>
+      <%= f.text_field :name_cont, :class => "search_bar_text_field" %>
+      <%= f.submit "Find", :class => "search_bar_button"%>
     </p>
   <% end %>
+</div>
 
-<%  @artists.each do |artist| %>
-  <tr>
-    <td><%= link_to artist.name, artist %></td>
-    <% if can? :manage, @artist %>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, method: :delete %></td>
-    <%end%>
-  </tr>
-<% end %>
-</table>
+<div class = "ebtsb">
 
-<br />
-
-<div class = "homepage_top_songs">
-  <h1>Songs</h1>
-
-  <table>
+  <%  @artists.each do |artist| %>
     <tr>
-      <th>Name</th>
-      <th>Artist</th>
-      <th>Audio</th>
-      <th></th>
-      <th></th>
+      <td><%= link_to artist.name, artist %></td>
+      <% if can? :manage, @artist %>
+      <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+      <td><%= link_to 'Destroy', artist, method: :delete %></td>
+      <%end%>
     </tr>
-
-  <% @songs.each do |song| %>
-    <%if song.valid?%>
-      <tr>
-        <td><%= link_to song.name, song.artist %></td>
-        <td><%= song.artist.name %></td>
-        
-        <td> <audio controls>
-          <source src=<%= song.song_audio.url %> type="audio/ogg">
-          <source src=<%= song.song_audio.url %> type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio></br></td>
-      </tr>
-    <% end %>
-  <%end%>
+  <% end %>
   </table>
+
+  <br />
+
+  <div class = "homepage_top_songs">
+    <h1>Songs</h1>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Artist</th>
+        <th>Audio</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @songs.each do |song| %>
+      <%if song.valid?%>
+        <tr>
+          <td><%= link_to song.name, song.artist %></td>
+          <td><%= song.artist.name %></td>
+          
+          <td> <audio controls>
+            <source src=<%= song.song_audio.url %> type="audio/ogg">
+            <source src=<%= song.song_audio.url %> type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio></br></td>
+        </tr>
+      <% end %>
+    <%end%>
+    </table>
+  </div>
 </div>
 
 

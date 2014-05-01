@@ -81,6 +81,43 @@ nav .right {
   list-style: none;
 }
 
+.search_bar{
+  position:fixed;
+  text-align: center;
+  height:55px;
+  width: 100%;
+  background-color: white;
+  z-index: 30;
+}
+
+.search_bar_text_field{
+  background: #eee;
+  padding:10px;
+  /* border-radius:10px 0 0 10px;
+  -moz-border-radius:10px 0 0 10px;
+  -webkit-border-radius:10px 0 0 10px;
+  -o-border-radius:10px 0 0 10px;*/
+  border:0 none;
+  width:160px;
+}
+
+.search_bar_button{
+  background:black;
+  color:white;
+  font: 'ubuntu', trebuchet;
+  padding:10px 20px;
+  /*border-radius:0 10px 10px 0;
+  -moz-border-radius:0 10px 10px 0;
+  -webkit-border-radius:0 10px 10px 0;
+  -o-border-radius:0 10px 10px 0*/;
+  border:0 none;
+  font-weight:bold;
+}
+
+.ebtsb{
+  padding-top: 110px;
+}
+
 .left_sidebar{
   position: fixed;
   top: 230px;
@@ -100,7 +137,9 @@ nav .right {
 
 
 .songs_group{
-  padding-left: 250px;
+  margin-left: 295px;
+  margin-right: 35px;
+  padding-left: 65px;
 }
 
 .cover_image {
