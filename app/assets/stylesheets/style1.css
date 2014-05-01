@@ -1,15 +1,41 @@
-/*.log_in_header{
-  position: fixed;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', Georgia, Times, serif;
+}
+p, div {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}
+
+.title{
+  font-family: 'Lato', Georgia, Times, serif;
+  font-size: 6em;
+  font-weight: bold;
+  margin: 20px 0px 35px 0px;
+}
+
+top_menu_bar{
+  text-decoration: none;
   display: inline-block;
   background-color: white;
-  font-family: Gill Sans, Sans-Serif;
   color: black;
   right:0px;
   top:0px;
-  height:55px;
+  height:25px;
   width: 100%;
-  border-bottom: 1px solid #121212;
-}*/
+  text-align: right;
+  margin: 5px;
+  padding-right: 10px;
+}
+
+
+.ebth{
+  margin-top: 0px; 
+}
+
+nav{
+  background-color: black;
+  color: white;
+}
 
 .left_sidebar{
   position: absolute;
@@ -36,6 +62,11 @@
 font: 5em;
 }
 
+.song_index_header{
+  text-align: left;
+  font-size: 3em;
+  margin: 25px 0px 25px 320px;
+}
 
 
 

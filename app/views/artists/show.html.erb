@@ -39,12 +39,15 @@
 
     <% @artist.songs.order('updated_at DESC').each do |song| %>
       <div class = "song">
+     
       <div class = "song_name"><%= song.name %></div></br>
+      <%= image_tag song.song_image_url(:thumb) %>
       <audio controls>
         <source src=<%= song.song_audio.url %> type="audio/ogg">
         <source src=<%= song.song_audio.url %> type="audio/mpeg">
         Your browser does not support the audio element.
       </audio></br>
+      <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %>
 
       <% if can? :manage, song %>
       <%= link_to "Edit Song", edit_song_path(song) %>

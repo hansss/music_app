@@ -5,30 +5,31 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+ <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+ <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,700,800' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div class = "log_in_header">
-      
-      <% if current_user %>
-        Hello, <%=link_to current_user.name, current_user%>
-        <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%>
-      <%else %>
-        <%= link_to 'Sign Up', new_artist_path %>&nbsp&nbsp
-        <%=link_to "Log In", new_session_path%>
-    <% end %>
-   </div>
-
-   <div class = "top_menu_bar">
-    <%= link_to "Home", root_path%>
-    <%= link_to "Artists", artists_path %>
-    <%= link_to "Songs", songs_path %>
-   </div>
-
-
-
-
-<%= yield %>
+   <p class = "title">COLLAB</p>
+   <div class = "ebth">
+       <nav>
+          <%= link_to "Home", root_path%>
+          <%= link_to "Artists", artists_path %>
+          <%= link_to "Songs", songs_path %>
+          <% if current_user %>
+            Hello, <%=link_to current_user.name, current_user%>
+            <%=link_to "Log Out", session_path(0), method: :delete, data: {confirm: "Are you sure?"}%>
+          <%else %>
+            <%= link_to 'Sign Up', new_artist_path %>&nbsp&nbsp
+            <%=link_to "Log In", new_session_path%>
+          <% end %>
+       </nav>        
+     </div>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

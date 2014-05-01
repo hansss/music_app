@@ -1,4 +1,4 @@
-<h1>Listing songs</h1>
+<div class = "song_index_header">Songs</div>
 
 <table>
   <tr>
@@ -7,10 +7,22 @@
     <th></th>
     <th></th>
   </tr>
-
+<!-- @songs.order('updated_at DESC').each -->
 <% @songs.each do |song| %>
+  <% if song.song_audio? %>
   <tr>
-    <td><%= song.name %></td>
+    <td><%=image_tag song.get_song_image %></td>
+    <td><%= link_to song.name, song.artist %></td>
+    <td>
+      <audio controls>
+        <source src=<%= song.song_audio.url %> type="audio/ogg">
+        <source src=<%= song.song_audio.url %> type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio></br>
+    </td>
+    <td>
+      <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></td>
+  
 
     <% if current_user.role? :admin%>
     <td><%= link_to 'Show', song %></td>
@@ -18,6 +30,7 @@
     <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<%end%>
 <%end%>
 </table>
 
