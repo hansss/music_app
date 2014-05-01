@@ -99,12 +99,15 @@ nav .right {
   -o-border-radius:10px 0 0 10px;*/
   border:0 none;
   width:160px;
+  font-size: 1em;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  text-align: right;
 }
 
 .search_bar_button{
   background:black;
   color:white;
-  font: 'ubuntu', trebuchet;
+  font: 'Raleway', sans-serif;
   padding:10px 20px;
   /*border-radius:0 10px 10px 0;
   -moz-border-radius:0 10px 10px 0;
@@ -112,10 +115,36 @@ nav .right {
   -o-border-radius:0 10px 10px 0*/;
   border:0 none;
   font-weight:bold;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .ebtsb{
   padding-top: 110px;
+}
+
+.pic_container{
+  width: 1500px;
+  height: 225px;
+}
+
+.section{
+  position: fixed;
+  width:600px;
+  display: inline-block;
+  padding: 15px 15px;
+  margin: 0 auto;
+  white-space:nowrap; 
+  overflow: scroll;
+}
+
+.homepage_image{
+  float: left;
+  height: 240px;
+  width: 75%;
+  margin: 3.2%;
+  text-align:center;
+  border: 7px solid white;
 }
 
 .left_sidebar{
@@ -131,9 +160,6 @@ nav .right {
 }
 
 
-.left_sidebar_scrollable{
- 
-}
 
 
 .songs_group{
@@ -176,6 +202,7 @@ font: 5em;
 
 .songs_group{
   margin-top: 20px;
+
 }
 
 .clear {
@@ -209,7 +236,22 @@ img[alt='Default_song_image'] {
 }
 
 
+.song_name{
+  font-family: "Lato",sans-serif;
+  font-size: 2em;
+  padding-top: 15px;
+}
 
+audio{
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+
+
+.comments{
+  margin:15px;
+}
 
 
 

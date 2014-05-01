@@ -7,8 +7,9 @@
       </div>
     </div>
 
+<!-- style="background-color:blue" yellow, pink, red, green, black, purple-->
 
-    <div class = "left_sidebar"
+    <div class = "left_sidebar" >
       <div class = "left_sidebar_scrollable">
           <div class = "profile_image">
             <% check_for_profile_image(@artist) %>
@@ -42,7 +43,12 @@
     <% @artist.songs.order('updated_at DESC').each do |song| %>
       <div class = "song">
 
-        <div class = "song_name"><%= song.name %></div></br>
+        <div class = "song_name"><%= song.name %></div>
+        <div class = "song_date">
+        <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></div>
+        <div class = "add_a_comment_link">
+           <%= link_to "Add a comment", new_song_comment_path(song) %>
+         </div>
         <%= image_tag song.get_song_image %>
 
         <audio controls>
@@ -50,25 +56,28 @@
           <source src=<%= song.song_audio.url %> type="audio/mpeg">
           Your browser does not support the audio element.
         </audio></br>
-        <%= song.updated_at.to_date.to_formatted_s(:long_ordinal) %></br>
+        
 
         <% if can? :manage, song %>
         <%= link_to "Edit Song", edit_song_path(song) %>
         <%= link_to "Delete Song", song_path(song), method: "delete" %></br>
         <% end %>
 
-        <%= link_to "Add a comment", new_song_comment_path(song) %>
+       
 
         <% song.comments.each do |comment| %>
-            <li class="comments">    
+            <div class="comments">  <div class="comment_author">
+
               <% if comment.artist != nil %>
                 <%=image_tag comment.artist.profile_image_url(:comment_thumb) %> 
               <% end %>
-
-
-              <%=verify_if_comment_has_a_registered_author(comment)%>: 
-              <%= comment.content %>
-              <%= comment.updated_at.to_formatted_s(:long) %>
+              <b><%=verify_if_comment_has_a_registered_author(comment) %></b></br>
+             
+            </div>
+               <div class="comment_content">
+              <%= comment.content %></br>
+               <%= comment.updated_at.to_formatted_s(:long)%>
+              
 
               <% if current_user != nil %>
                 <% if can? :manage, comment %>
@@ -78,7 +87,8 @@
                   <%= link_to 'Delete', song_comment_path(song, comment), method: :delete %>
                 <%end%>
               <%end%>
-            </li>
+            </div>
+          </div>
         <% end %>
     </div>
     <% end %>

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @artists = Artist.all
     @songs = Song.all
 
-    @q = Artist.search(params[:q])
+    @q = Artist.search(params[:q]) 
     
   end
 
