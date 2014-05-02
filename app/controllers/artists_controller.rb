@@ -48,7 +48,7 @@ class ArtistsController < ApplicationController
     respond_to do |format|
       if @artist.save
         session[:artist_id] = @artist.id
-        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
+        format.html { redirect_to edit_artist_path(@artist), notice: 'Artist was successfully created.' }
         format.json { render json: @artist, status: :created, location: @artist }
       else
         format.html { render action: "new" }

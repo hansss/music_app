@@ -189,6 +189,23 @@ nav .right {
   background-color:rgba(255,0,0,0.5);
   height:100%;
   z-index:50;
+  
+}
+
+.left_sidebar_text{
+  font-size: 1.5em;
+  color:black;
+  padding-top: 15px;
+}
+.left_sidebar_text div{
+  padding-bottom: 5px;
+}
+
+.edit_profile_page a{
+  font-size: 1.5em;
+  text-decoration: underline;
+  color: white;
+
 }
 
 
@@ -227,10 +244,41 @@ font: 5em;
 }
 
 .song_title_on_artist_page{
-  font-size: 2em;
+  font-size: 3em;
   font-family: 'Lato', Georgia, Times, serif;
   font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 65px;
 }
+
+.add_new_song_link{
+  color:black;
+  text-decoration: underline;
+  font-size: 2em;
+}
+
+/*.add_new_song_link:visited{
+  color:white;
+}
+*/
+.add_new_song_link:hover{
+  color:#fff;
+}
+
+.add_a_comment_link{
+  color:white;
+  background-color: black;
+  font-size: 1.5em;
+}
+.add_a_comment_link:visited{
+  color:white;
+}
+.add_a_comment_link:hover{
+  color:black;
+  background-color: white;
+}
+
+
 
 .songs_group{
   margin-top: 20px;
