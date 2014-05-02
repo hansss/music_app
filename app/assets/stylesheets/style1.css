@@ -19,7 +19,12 @@ a{
   font-family: 'Lato', Georgia, Times, serif;
   font-size: 6em;
   font-weight: bold;
-  margin: 20px 0px 35px 0px;
+  margin: 40px 0px 60px 0px;
+  text-decoration: none;
+}
+
+.title:hover{
+  background-color: white;
 }
 
 .title a{
@@ -38,7 +43,7 @@ body{
 }
 
 .ebth{
-  padding-top: 215px; 
+  padding-top: 190px; 
 }
 
 nav{
@@ -46,13 +51,28 @@ nav{
   border-top: 3px dashed black;
   padding-top: 10px;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
+
   text-decoration: none;
 }
 
-
+.title a:hover{
+  background-color: transparent;
+  text-decoration: none;
+}
 
 nav li{
   display: inline-block;
+  font-size: 1.2em;
+  color:block;
+}
+
+nav li a:visited{
+  color:black;
+}
+
+nav li a:hover{
+  color:#666;
+  background-color: white;
 }
 nav a{
   color:black;
@@ -98,7 +118,8 @@ nav .right {
   -webkit-border-radius:10px 0 0 10px;
   -o-border-radius:10px 0 0 10px;*/
   border:0 none;
-  width:160px;
+  width:350px;
+  height:30px;
   font-size: 1em;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   text-align: right;
@@ -117,25 +138,36 @@ nav .right {
   font-weight:bold;
   font-size: 1em;
   cursor: pointer;
+  height:50px;
+  width:85px;
+  margin-left: 5px;
 }
 
 .ebtsb{
   padding-top: 110px;
 }
 
+
+
 .pic_container{
   width: 1500px;
   height: 225px;
 }
 
+.pic_row{
+  float:left;
+  margin-right: 5px;
+}
+
 .section{
   position: fixed;
-  width:600px;
+  width: 1500px;
   display: inline-block;
   padding: 15px 15px;
   margin: 0 auto;
   white-space:nowrap; 
   overflow: scroll;
+  left: 35px;
 }
 
 .homepage_image{

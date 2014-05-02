@@ -14,8 +14,10 @@
     <div class = "pic_container">
         <% @artists.each do |artist| %>
         <div class= "pic_row">
-          <%#= link_to artist.name.upcase, artist %>
+          
           <%= link_to image_tag(artist.get_index_profile_image), artist %>
+          <%#= link_to artist.name.upcase, artist %>
+        
         </div>
         <%end%>
     </div>
