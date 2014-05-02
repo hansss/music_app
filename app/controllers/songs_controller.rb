@@ -3,6 +3,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
+    # @songs = Song.order(comments.count: :desc ,updated_at: :desc)
     @songs = Song.order('updated_at DESC')
 
     respond_to do |format|

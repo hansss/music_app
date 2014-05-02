@@ -2,6 +2,8 @@ class Artist < ActiveRecord::Base
   has_secure_password
   ROLES = %w[admin banned]
   validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
+   validates :password_digest, presence: true
 
   attr_accessible :city, :name, :email, :password, :password_confirmation, :profile_image, :cover_image, :color, :color_id
 
